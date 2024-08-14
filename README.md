@@ -80,9 +80,11 @@ Notas importantes:
 npx @nestjs/cli new nombre-del-proyecto
 
 2.Vincular el repositorio de GitHub con el proyecto local creado por Nest: 
+```bash
 git remote add origin https://github.com/tu-usuario/nombre-del-repositorio.git
 git branch -M main
 git push -u origin main
+```
 
 -----------
 Historia de usuario 1:Configuración Inicial y Estructura del Proyecto
