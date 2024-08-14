@@ -118,8 +118,37 @@ servicios y retornar las respuestas al cliente. No debería contener lógica de 
 2.CREACIÓN DE MÓDULOS BÁSICOS
 
 nest g mo loans: se utiliza para generar un nuevo módulo llamado loans.
+nest g mo users: se utiliza para generar un nuevo módulo llamado users.
 
+*¿Por qué crees que es importante modularizar la aplicación separando funcionalidades en diferentes módulos?
 
+1. Organización y estructura: La modularización divide la aplicación en módulos independientes. Cada módulo se enfoca en una funcionalidad específica, lo que facilita la comprensión y el mantenimiento del código.
+
+2. Reutilización del código: Los módulos pueden reutilizarse en diferentes partes del proyecto o incluso en proyectos distintos. Esto ahorra tiempo y esfuerzo al no tener que escribir la misma lógica repetidamente.
+
+3. Trabajo en equipo: Diferentes miembros del equipo pueden enfocarse en módulos específicos. La modularización permite una colaboración más eficiente y reduce conflictos al trabajar en paralelo.
+
+4. Cambios sin afectar todo el sistema: Al dividir la aplicación en módulos, puedes realizar cambios o mejoras en una parte sin afectar al resto. Esto reduce el riesgo de errores y agiliza el desarrollo.
+
+En resumen, la modularización mejora la legibilidad, el mantenimiento y la escalabilidad de la aplicación. 
+
+*¿Cómo crees que afecta la modularidad al mantenimiento y escalabilidad de la aplicación?
+
+1. Mantenimiento:
+
+*Facilita la corrección de errores: En un sistema modular, puedes aislar y solucionar problemas en un módulo específico sin afectar el resto de la aplicación.
+
+*Mejora la legibilidad: Los módulos bien definidos permiten una comprensión más rápida del código. Esto es crucial para el mantenimiento a largo plazo.
+
+Actualizaciones más seguras: Puedes actualizar un módulo sin preocuparte por romper otras partes del sistema.
+
+2. Escalabilidad:
+
+*Escalabilidad horizontal: Puedes escalar solo los módulos que necesitan más recursos, en lugar de toda la aplicación.
+
+*Agregación de funcionalidades: Agregar nuevas características es más sencillo cuando se trata de módulos independientes.
+
+*Reutilización de código: Los módulos pueden utilizarse en diferentes proyectos, lo que acelera el desarrollo y la escalabilidad.
 
 *Despues de crear los archivos de los módulos, ¿qué archivos se generan y cómo se relacionan con los módulos creados?
 
@@ -140,3 +169,4 @@ Con este módulo podemos:
 *Agregar controladores y servicios: Puedes agregar controladores y servicios específicos al módulo Users. Por ejemplo, puedes crear un controlador UsersController y un servicio UsersService para manejar las operaciones relacionadas con los usuarios.
 *Importar otros módulos: Puedes importar otros módulos dentro del UsersModule para usar sus funcionalidades, como conectores de base de datos o módulos compartidos.
 *Configurar dependencias: Puedes definir dependencias que serán utilizadas dentro del módulo, configurando como interactúa con otros módulos y servicios en la aplicación. 
+
