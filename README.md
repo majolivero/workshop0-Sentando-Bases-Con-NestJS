@@ -71,3 +71,15 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](LICENSE).
+
+-----------
+Notas importantes:
+
+1.Instalación de NESTjs DE MANERA LOCAL:
+npx @nestjs/cli new nombre-del-proyecto
+
+2.Vincular el repositorio de GitHub con el proyecto local creado por Nest: 
+git remote add origin https://github.com/tu-usuario/nombre-del-repositorio.git
+git branch -M main
+git push -u origin main
+
