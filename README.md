@@ -95,4 +95,12 @@ Rol en la arquitectura limpia: Capa de Configuración.
 Propósito: Aquí es donse se configura y arranca el servidor de la aplicación. En términos de arquitectura limpia,
 main.ts configura las capas externas, como la red(HTTP), y orquesta la inicialización de la aplicación sin involucrarse en la lógica de negocio. Es el archivo que conecta todos los componentes antes de que la aplicación comience a procesar solicitudes, por esto es crucial en la configuración inicial.
 
+2. ¿Qué diferencia existe entre app.module.ts y app.controller.ts? ¿Cómo se relacionan estos archivos con la modularidad y la estructura de la aplicación?
+
+app.module.ts es el módulo raíz de la aplicación que organiza otros módulos necesarios.
+Este archivo agrupa y organiza la configuración y los módulos de la aplicación. En la Arquitectura Limpia, actúa como la capa de configuración que ensambla los módulos, controladores, y servicios, definiendo cómo se interrelacionan sin involucrarse en la lógica de negocio.
+
+Mientras que, app.controller.ts define un controlador básico que maneja las rutas y métodos HTTP.
+Dentro de la Arquitectura Limpia, el controlador actúa como la interfaz entre el mundo exterior y la lógica interna de la aplicación. Se encarga de recibir las solicitudes HTTP, delegar la lógica de negocio a los servicios y retornar las respuestas al cliente. No debería contener lógica de negocio, su función es coordinar y orquestar la interacción entre las capas.
+
 
