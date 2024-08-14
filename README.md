@@ -86,16 +86,25 @@ git branch -M main
 git push -u origin main
 ```
 
+3.¿Qué es un módulo en NestJS?
+En NestJS, un módulo es una unidad fundamental de la aplicación. Es una clase decorada con @Module(), que agrupa componentes relacionados, como controladores y servicios. Los módulos ayudan a organizar la aplicación de manera modular, promoviendo la separación de responsabilidades y facilitando el mantenimiento.
+
 -----------
 Historia de usuario 1:Configuración Inicial y Estructura del Proyecto
+
+1.CONFIGURACIÓN DEL PROYECTO
+
 Preguntas:
-1. ¿Qué propósito cumple el archivo main.ts en un proyecto NestJS y por qué es crucial en la configuración inicial?
+
+*¿Qué propósito cumple el archivo main.ts en un proyecto NestJS y por qué es crucial en la configuración inicial?
+
 El archivo main.ts en un proyecto NestJS es el punto de entrada de la aplicación.
 Rol en la arquitectura limpia: Capa de Configuración.
 Propósito: Aquí es donse se configura y arranca el servidor de la aplicación. En términos de arquitectura limpia,
 main.ts configura las capas externas, como la red(HTTP), y orquesta la inicialización de la aplicación sin involucrarse en la lógica de negocio. Es el archivo que conecta todos los componentes antes de que la aplicación comience a procesar solicitudes, por esto es crucial en la configuración inicial.
 
-2. ¿Qué diferencia existe entre app.module.ts y app.controller.ts? ¿Cómo se relacionan estos archivos con la modularidad y la estructura de la aplicación?
+*¿Qué diferencia existe entre app.module.ts y app.controller.ts? ¿Cómo se relacionan estos archivos con la modularidad y la estructura de la aplicación?
+
 app.module.ts es el módulo raíz de la aplicación que organiza otros módulos necesarios.
 Este archivo agrupa y organiza la configuración y los módulos de la aplicación. En la Arquitectura Limpia, actúa como la capa de configuración que ensambla los módulos, controladores, y servicios, definiendo cómo se interrelacionan sin involucrarse en la lógica de negocio.
 
@@ -104,5 +113,30 @@ Dentro de la Arquitectura Limpia, el controlador actúa como la interfaz entre e
 interna de la aplicación. Se encarga de recibir las solicitudes HTTP, delegar la lógica de negocio a los
 servicios y retornar las respuestas al cliente. No debería contener lógica de negocio, su función es coordinar y orquestar la interacción entre las capas.
 
+-----------
+
+2.CREACIÓN DE MÓDULOS BÁSICOS
+
+nest g mo loans: se utiliza para generar un nuevo módulo llamado loans.
 
 
+
+*Despues de crear los archivos de los módulos, ¿qué archivos se generan y cómo se relacionan con los módulos creados?
+
+MÓDULO Loans Module:
+Después crear el módulo LoansModule con el comando npx nest g mo loans(por estar instalado nest localmente), la
+CLI de NestJS genera un nuevo archivo de módulo con el nombre loans.module.ts dentro de una carpeta llamada loans, que hace parte de la carpeta src. 
+
+El contenido del archivo es un módulo básico de NestJS, que es una clase decorada con @Module() y que sirve como un contenedor para otros componentes como controladores,servicios y otros módulos. 
+
+Este nuevo módulo LoansModule puede luego ser importado en otros módulos de la aplicación o ampliado para incluir controladores, servicios, y otras dependencias que se necesiten para gestionar la funcionalidad relacionada con "loans" (préstamos, en este caso).
+
+Este comando es muy útil para mantener la estructura de tu proyecto organizada, ya que NestJS fomenta la modularidad y la separación de responsabilidades dentro de las aplicaciones.
+
+MÓDULO UsersModule:
+Después de crear el módulo UsersModule con el mando npx nest g mo users(por estar instalado nest localmente), la CLI de NestJS genera un nuevo archivo de módulo con el nombre users.module.ts dentro de una carpeta llamada users, que hace parte de la carpeta src.
+
+Con este módulo podemos:
+*Agregar controladores y servicios: Puedes agregar controladores y servicios específicos al módulo Users. Por ejemplo, puedes crear un controlador UsersController y un servicio UsersService para manejar las operaciones relacionadas con los usuarios.
+*Importar otros módulos: Puedes importar otros módulos dentro del UsersModule para usar sus funcionalidades, como conectores de base de datos o módulos compartidos.
+*Configurar dependencias: Puedes definir dependencias que serán utilizadas dentro del módulo, configurando como interactúa con otros módulos y servicios en la aplicación. 
