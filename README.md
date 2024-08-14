@@ -90,86 +90,312 @@ git push -u origin main
 En NestJS, un módulo es una unidad fundamental de la aplicación. Es una clase decorada con @Module(), que agrupa componentes relacionados, como controladores y servicios. Los módulos ayudan a organizar la aplicación de manera modular, promoviendo la separación de responsabilidades y facilitando el mantenimiento.
 
 -----------
-Historia de usuario 1:Configuración Inicial y Estructura del Proyecto
+# 🛠️ Sentando Bases con NestJS
 
-1.CONFIGURACIÓN DEL PROYECTO
+---
 
-Preguntas:
+## **Objetivo:**
+**Sentar las bases en NestJS** a través de una serie de temas fundamentales que permitirán al estudiante construir una comprensión sólida de este poderoso framework. Los temas a tocar en el taller incluyen:
 
-1.1¿Qué propósito cumple el archivo main.ts en un proyecto NestJS y por qué es crucial en la configuración inicial?
+- 🛡️ **¿Qué es Nest?**
+- 🤔 **¿Por qué usarlo?**
+- 🗂️ **Explicación sobre cada archivo en un proyecto nuevo de Nest**
+- 🏗️ **Core Nest building blocks**
+- 📦 **Módulos**
+- 📋 **Controladores (Post, Patch, Get, Delete)**
+- 🏷️ **Primeros decoradores**
+- 💼 **Servicios**
+- 💉 **Inyección de dependencias**
+- 🧪 **Pipes**
+- 🚨 **Exception Filters**
 
-El archivo main.ts en un proyecto NestJS es el punto de entrada de la aplicación.
-Rol en la arquitectura limpia: Capa de Configuración.
-Propósito: Aquí es donse se configura y arranca el servidor de la aplicación. En términos de arquitectura limpia,
-main.ts configura las capas externas, como la red(HTTP), y orquesta la inicialización de la aplicación sin involucrarse en la lógica de negocio. Es el archivo que conecta todos los componentes antes de que la aplicación comience a procesar solicitudes, por esto es crucial en la configuración inicial.
+---
 
-1.2¿Qué diferencia existe entre app.module.ts y app.controller.ts? ¿Cómo se relacionan estos archivos con la modularidad y la estructura de la aplicación?
+## **Introducción:**
+> **¡Bienvenidos!** 🎉 Después de un viaje profundo por el mundo de Node.js, TypeScript, decoradores, pruebas de desempeño y otras cosas que generan una potencial frustración 😅, nos adentramos ahora en el universo de NestJS, un framework que nos permitirá estructurar nuestras aplicaciones de manera modular y escalable, llevando nuestras habilidades a un nuevo nivel. En este taller, crearemos una base sólida en NestJS, preparándonos para enfrentar problemas complejos en el ámbito de la tecnología financiera.
 
-app.module.ts es el módulo raíz de la aplicación que organiza otros módulos necesarios.
-Este archivo agrupa y organiza la configuración y los módulos de la aplicación. En la Arquitectura Limpia, actúa como la capa de configuración que ensambla los módulos, controladores, y servicios, definiendo cómo se interrelacionan sin involucrarse en la lógica de negocio.
+---
 
-Mientras que, app.controller.ts define un controlador básico que maneja las rutas y métodos HTTP.
-Dentro de la Arquitectura Limpia, el controlador actúa como la interfaz entre el mundo exterior y la lógica
-interna de la aplicación. Se encarga de recibir las solicitudes HTTP, delegar la lógica de negocio a los
-servicios y retornar las respuestas al cliente. No debería contener lógica de negocio, su función es coordinar y orquestar la interacción entre las capas.
+## **Instrucciones de Entrega:**
+- **Subir tu proyecto a GitHub:** Crea un repositorio en GitHub y sube tu proyecto de NestJS.
+- **Compartir el enlace:** Sube tu enlace a la plataforma de Laboratoria para que pueda revisar tu proyecto.
+---
 
------------
+## **Problemática:**
 
-2.CREACIÓN DE MÓDULOS BÁSICOS
+**Contexto de la Problemática:**
 
-nest g mo loans: se utiliza para generar un nuevo módulo llamado loans.
-nest g mo users: se utiliza para generar un nuevo módulo llamado users.
+Imagina que has sido contratado por una fintech emergente que busca revolucionar el mercado de microcréditos. La compañía, **QuickLoan**, quiere ofrecer préstamos rápidos a personas con poca o ninguna historia crediticia, pero se enfrenta a varios desafíos:
 
-2.1¿Por qué crees que es importante modularizar la aplicación separando funcionalidades en diferentes módulos?
+1. **Velocidad y Seguridad:** Los usuarios esperan decisiones inmediatas sobre sus solicitudes de préstamo, lo cual requiere un sistema rápido y seguro.
+2. **Escalabilidad:** A medida que la fintech crezca, el sistema debe ser capaz de manejar miles de solicitudes simultáneamente.
+3. **Modularidad y Mantenimiento:** El sistema debe ser modular para permitir la incorporación de nuevas funcionalidades y mejoras sin comprometer la estabilidad.
+4. **Personalización y Manejo de Excepciones:** Se requiere un sistema que pueda personalizar las ofertas de crédito y manejar excepciones de manera eficiente para evitar posibles fraudes.
 
-1. Organización y estructura: La modularización divide la aplicación en módulos independientes. Cada módulo se enfoca en una funcionalidad específica, lo que facilita la comprensión y el mantenimiento del código.
+**Problemática**: QuickLoan necesita un sistema backend robusto que permita manejar solicitudes de préstamos de manera segura, rápida y escalable, asegurando una experiencia fluida para el usuario final. Debes crear la base de este sistema utilizando NestJS.
 
-2. Reutilización del código: Los módulos pueden reutilizarse en diferentes partes del proyecto o incluso en proyectos distintos. Esto ahorra tiempo y esfuerzo al no tener que escribir la misma lógica repetidamente.
+---
 
-3. Trabajo en equipo: Diferentes miembros del equipo pueden enfocarse en módulos específicos. La modularización permite una colaboración más eficiente y reduce conflictos al trabajar en paralelo.
+## **Epica:**
 
-4. Cambios sin afectar todo el sistema: Al dividir la aplicación en módulos, puedes realizar cambios o mejoras en una parte sin afectar al resto. Esto reduce el riesgo de errores y agiliza el desarrollo.
+**Como** desarrollador backend en **QuickLoan**,
+**Quiero** construir un sistema modular y seguro en NestJS,
+**Para** gestionar ***solicitudes de préstamos*** de manera eficiente y escalable, mientras garantizo la seguridad de los datos y el manejo adecuado de excepciones.
 
-En resumen, la modularización mejora la legibilidad, el mantenimiento y la escalabilidad de la aplicación. 
+---
 
-2.2¿Cómo crees que afecta la modularidad al mantenimiento y escalabilidad de la aplicación?
+## **Criterios de Aceptación:**
 
-1. Mantenimiento:
+- **Comprensión y Explicación de la Estructura de un Proyecto NestJS**: El estudiante debe identificar y explicar la función de cada archivo en la estructura básica de un proyecto NestJS.
+- **Implementación de Controladores Eficientes**: El estudiante debe crear controladores que manejen diferentes métodos HTTP (Post, Patch, Get, Delete) para gestionar solicitudes de préstamo.
+- **Uso Efectivo de Decoradores y Servicios**: Implementar decoradores y servicios que permitan personalizar y manejar la lógica de negocio del sistema de préstamos.
+- **Configuración Adecuada de Pipes y Exception Filters**: Configurar y aplicar pipes para la validación de datos y filtros de excepción para manejar errores y proteger el sistema.
+- **Aplicación de la Inyección de Dependencias para Modularidad**: Usar inyección de dependencias para construir un sistema modular, permitiendo la fácil adición de nuevas funcionalidades.
 
-*Facilita la corrección de errores: En un sistema modular, puedes aislar y solucionar problemas en un módulo específico sin afectar el resto de la aplicación.
 
-*Mejora la legibilidad: Los módulos bien definidos permiten una comprensión más rápida del código. Esto es crucial para el mantenimiento a largo plazo.
+---
 
-Actualizaciones más seguras: Puedes actualizar un módulo sin preocuparte por romper otras partes del sistema.
+## **Historias de Usuario**
 
-2. Escalabilidad:
+## **Historia de Usuario 1: Configuración Inicial y Estructura del Proyecto**
 
-*Escalabilidad horizontal: Puedes escalar solo los módulos que necesitan más recursos, en lugar de toda la aplicación.
+**Como** desarrollador backend,  
+**Quiero** aprender a configurar y entender la estructura básica de un proyecto NestJS,  
+**Para** asegurarme de que la arquitectura del proyecto sea modular y fácilmente escalable.
 
-*Agregación de funcionalidades: Agregar nuevas características es más sencillo cuando se trata de módulos independientes.
+**Tareas:**
 
-*Reutilización de código: Los módulos pueden utilizarse en diferentes proyectos, lo que acelera el desarrollo y la escalabilidad.
+### **1. Configuración del Proyecto**
 
-2.3Despues de crear los archivos de los módulos, ¿qué archivos se generan y cómo se relacionan con los módulos creados?
+- **Propuesta de Solución**:
+   - Crear un nuevo proyecto NestJS llamado `quickloan-app` utilizando el CLI:
+   ```bash
+   nest new quickloan-app
+   ```
+   - Revisar y entender la estructura de archivos generada por defecto. Asegúrate de leer la documentación o las notas adicionales proporcionadas. Puedes explorar cada archivo y carpeta para comprender su propósito y cómo contribuye a la arquitectura del proyecto [aquí](../notes/files-explanation.md) o [aquí](../notes/components.md).
+   - Identificar el propósito de cada archivo y cómo contribuye a la modularidad del proyecto. Puedes leer la siguiente documentación [Estructura propuesta aplicaciones NestJS](../notes/proposed-architecture.md).
 
-MÓDULO Loans Module:
-Después crear el módulo LoansModule con el comando npx nest g mo loans(por estar instalado nest localmente), la
-CLI de NestJS genera un nuevo archivo de módulo con el nombre loans.module.ts dentro de una carpeta llamada loans, que hace parte de la carpeta src. 
+- **Preguntas**:
+   1. ¿Qué propósito cumple el archivo `main.ts` en un proyecto NestJS y por qué es crucial en la configuración inicial? Puedes leer más sobre el archivo [aquí](../first-step-project/src/main.ts) en la sección inferior de
+   notas.
+   
+   El archivo main.ts en un proyecto NestJS es el punto de entrada de la aplicación.
+   Rol en la arquitectura limpia: Capa de Configuración.
+   Propósito: Aquí es donse se configura y arranca el servidor de la aplicación. En términos de arquitectura limpia,main.ts configura las capas externas, como la red(HTTP), y orquesta la inicialización de la aplicación sin involucrarse en la lógica de negocio. Es el archivo que conecta todos los componentes antes de que la
+   aplicación comience a procesar solicitudes, por esto es crucial en la configuración inicial.
 
-El contenido del archivo es un módulo básico de NestJS, que es una clase decorada con @Module() y que sirve como un contenedor para otros componentes como controladores,servicios y otros módulos. 
+   2. ¿Qué diferencia existe entre `app.module.ts` y `app.controller.ts`? ¿Cómo se relacionan estos archivos con la modularidad y la estructura de la aplicación? Puedes leer sobre el archivo [aquí](../notes/files-explanation.md) o [aquí](../notes/components.md).
 
-Este nuevo módulo LoansModule puede luego ser importado en otros módulos de la aplicación o ampliado para incluir controladores, servicios, y otras dependencias que se necesiten para gestionar la funcionalidad relacionada con "loans" (préstamos, en este caso).
+   app.module.ts es el módulo raíz de la aplicación que organiza otros módulos necesarios.
+   Este archivo agrupa y organiza la configuración y los módulos de la aplicación. En la Arquitectura Limpia, actúa como la capa de configuración que ensambla los módulos, controladores, y servicios, definiendo cómo se interrelacionan sin involucrarse en la lógica de negocio.
+   
+   Mientras que, app.controller.ts define un controlador básico que maneja las rutas y métodos HTTP.
+   Dentro de la Arquitectura Limpia, el controlador actúa como la interfaz entre el mundo exterior y la lógica
+   interna de la aplicación. Se encarga de recibir las solicitudes HTTP, delegar la lógica de negocio a los
+   servicios y retornar las respuestas al cliente. No debería contener lógica de negocio, su función es coordinar y orquestar la interacción entre las capas.
 
-Este comando es muy útil para mantener la estructura de tu proyecto organizada, ya que NestJS fomenta la modularidad y la separación de responsabilidades dentro de las aplicaciones.
+---
 
-MÓDULO UsersModule:
-Después de crear el módulo UsersModule con el mando npx nest g mo users(por estar instalado nest localmente), la CLI de NestJS genera un nuevo archivo de módulo con el nombre users.module.ts dentro de una carpeta llamada users, que hace parte de la carpeta src.
+### **2. Creación de Módulos Básicos**
 
-Con este módulo podemos:
-*Agregar controladores y servicios: Puedes agregar controladores y servicios específicos al módulo Users. Por ejemplo, puedes crear un controlador UsersController y un servicio UsersService para manejar las operaciones relacionadas con los usuarios.
-*Importar otros módulos: Puedes importar otros módulos dentro del UsersModule para usar sus funcionalidades, como conectores de base de datos o módulos compartidos.
-*Configurar dependencias: Puedes definir dependencias que serán utilizadas dentro del módulo, configurando como interactúa con otros módulos y servicios en la aplicación. 
+- **Propuesta de Solución**:
+   - Crear un módulo `LoansModule` para gestionar operaciones de préstamos:
+   ```bash
+   nest g mo loans
+   ```
+   - Crear un módulo `UsersModule` para gestionar la información de los usuarios:
+   ```bash
+   nest g mo users
+   ```
 
-3. IMPLEMENTACIÓN DE CONTROLADORES
+- **Cascarita**: Revisa el nombre del módulo generado y asegúrate de que sea correcto y consistente con el estándar de nombres.
 
-Después de crear el controlador LoansController con el comando npx nest g co loans, se crearon dentro de la carpeta loans dos módulos loans.controller.spec.ts y loans.controller.ts.
+- **Preguntas**:
+   1. ¿Por qué crees que es importante modularizar la aplicación separando funcionalidades en diferentes módulos
+   
+   nest g mo loans: se utiliza para generar un nuevo módulo llamado loans.
+   nest g mo users: se utiliza para generar un nuevo módulo llamado users.
+
+  1. Organización y estructura: La modularización divide la aplicación en módulos independientes. Cada módulo se enfoca en una funcionalidad específica, lo que facilita la comprensión y el mantenimiento del código.
+
+  2. Reutilización del código: Los módulos pueden reutilizarse en diferentes partes del proyecto o incluso en proyectos distintos. Esto ahorra tiempo y esfuerzo al no tener que escribir la misma lógica repetidamente.
+
+  3. Trabajo en equipo: Diferentes miembros del equipo pueden enfocarse en módulos específicos. La modularización permite una colaboración más eficiente y reduce conflictos al trabajar en paralelo.
+
+  4. Cambios sin afectar todo el sistema: Al dividir la aplicación en módulos, puedes realizar cambios o mejoras en una parte sin afectar al resto. Esto reduce el riesgo de errores y agiliza el desarrollo.
+
+  En resumen, la modularización mejora la legibilidad, el mantenimiento y la escalabilidad de la aplicación.
+
+   2. ¿Cómo crees que afecta la modularidad al mantenimiento y escalabilidad de la aplicación?
+
+   1. Mantenimiento:
+
+  *Facilita la corrección de errores: En un sistema modular, puedes aislar y solucionar problemas en un módulo específico sin afectar el resto de la aplicación.
+
+  *Mejora la legibilidad: Los módulos bien definidos permiten una comprensión más rápida del código. Esto es crucial para el mantenimiento a largo plazo.
+
+  *Actualizaciones más seguras: Puedes actualizar un módulo sin preocuparte por romper otras partes del sistema.
+
+  2. Escalabilidad:
+
+  *Escalabilidad horizontal: Puedes escalar solo los módulos que necesitan más recursos, en lugar de toda la aplicación.
+
+  *Agregación de funcionalidades: Agregar nuevas características es más sencillo cuando se trata de módulos independientes.
+
+  *Reutilización de código: Los módulos pueden utilizarse en diferentes proyectos, lo que acelera el desarrollo y la escalabilidad.
+
+  3. Despues de crear los archivos de los módulos, ¿qué archivos se generan y cómo se relacionan con los módulos creados?
+
+  MÓDULO Loans Module:
+  Después crear el módulo LoansModule con el comando npx nest g mo loans(por estar instalado nest localmente), la
+  CLI de NestJS genera un nuevo archivo de módulo con el nombre loans.module.ts dentro de una carpeta llamada loans, que hace parte de la carpeta src. 
+
+  El contenido del archivo es un módulo básico de NestJS, que es una clase decorada con @Module() y que sirve como un contenedor para otros componentes como controladores,servicios y otros módulos. 
+
+  Este nuevo módulo LoansModule puede luego ser importado en otros módulos de la aplicación o ampliado para incluir controladores, servicios, y otras dependencias que se necesiten para gestionar la funcionalidad relacionada con "loans" (préstamos, en este caso).
+
+  Este comando es muy útil para mantener la estructura de tu proyecto organizada, ya que NestJS fomenta la modularidad y la separación de responsabilidades dentro de las aplicaciones.
+
+  MÓDULO UsersModule:
+  Después de crear el módulo UsersModule con el mando npx nest g mo users(por estar instalado nest localmente), la CLI de NestJS genera un nuevo archivo de módulo con el nombre users.module.ts dentro de una carpeta llamada users, que hace parte de la carpeta src.
+
+  Con este módulo podemos:
+  *Agregar controladores y servicios: Puedes agregar controladores y servicios específicos al módulo Users. Por ejemplo, puedes crear un controlador UsersController y un servicio UsersService para manejar las operaciones relacionadas con los usuarios.
+  *Importar otros módulos: Puedes importar otros módulos dentro del UsersModule para usar sus funcionalidades, como conectores de base de datos o módulos compartidos.
+  *Configurar dependencias: Puedes definir dependencias que serán utilizadas dentro del módulo, configurando como interactúa con otros módulos y servicios en la aplicación. 
+
+---
+
+### **3. Implementación de Controladores**
+
+- **Propuesta de Solución**:
+   - Crear un controlador `LoansController` para manejar solicitudes POST de creación de préstamos:
+   ```bash
+   nest g co loans
+   ```
+   - Implementar rutas GET para consultar el estado de un préstamo en el mismo controlador:
+   ```typescript
+   import { Controller, Get, Post, Body, Param } from '@nestjs/common';
+
+   @Controller('loans')
+   export class LoansController {
+     @Post()
+     createLoan(@Body() createLoanDto: any) {
+       return 'Loan created';
+     }
+
+     @Get(':id')
+     getLoanStatus(@Param('id') id: string) {
+       return `Status of loan ${id}`;
+     }
+   }
+   ```
+
+- **Cascarita**: Asegúrate de que las rutas estén correctamente definidas y que los decoradores estén aplicados en los lugares correctos.
+
+- **Preguntas**:
+   1. ¿Qué sucede si defines incorrectamente un decorador en un controlador? ¿Cómo afecta esto a la funcionalidad del endpoint?
+   2. ¿Por qué es importante manejar rutas dinámicas (por ejemplo, `@Get(':id')`) en aplicaciones que interactúan con bases de datos?
+
+   NOTA: Después de crear el controlador LoansController con el comando npx nest g co loans, se crearon dentro de la carpeta loans dos módulos loans.controller.spec.ts y loans.controller.ts.
+
+---
+
+## **Historia de Usuario 2: Implementación de la Lógica de Negocio y Seguridad**
+
+**Como** desarrollador backend,  
+**Quiero** aprender a implementar la lógica de negocio y asegurar la seguridad de las transacciones,  
+**Para** garantizar que el sistema maneje las solicitudes de préstamos de manera segura y eficiente.
+
+**Tareas:**
+
+### **1. Desarrollo de Servicios**
+
+- **Propuesta de Solución**:
+   - Crear un servicio `LoansService` para manejar la lógica de negocio de los préstamos:
+   ```bash
+   nest g s loans
+   ```
+   - Implementar un método para calcular el riesgo del préstamo basado en el perfil del usuario:
+   ```typescript
+   import { Injectable } from '@nestjs/common';
+
+   @Injectable()
+   export class LoansService {
+     calculateLoanRisk(userProfile: any): string {
+       // Lógica básica para determinar el riesgo
+       if (userProfile.creditScore > 700) {
+         return 'Low Risk';
+       } else {
+         return 'High Risk';
+       }
+     }
+   }
+   ```
+
+- **Cascarita**: Verifica que el nombre del método y su propósito estén alineados con la lógica de negocio y que el servicio esté correctamente inyectado en el controlador.
+
+- **Preguntas**:
+   1. ¿Qué ventajas tiene manejar la lógica de negocio en servicios en lugar de controladores?
+   2. ¿Cómo se relaciona la inyección de dependencias con la modularidad y la capacidad de prueba de la aplicación?
+
+---
+
+### **2. Aplicación de Decoradores y Pipes**
+
+- **Propuesta de Solución**:
+   - Utilizar decoradores como `@Body`, `@Param`, y `@Query` para manejar datos de las solicitudes en el `LoansController`:
+   ```typescript
+   @Post()
+   createLoan(@Body() createLoanDto: any) {
+     return `Loan created for ${createLoanDto.userId}`;
+   }
+   ```
+
+   - Implementar un `ValidationPipe` para validar los datos de entrada:
+   ```typescript
+   import { ValidationPipe } from '@nestjs/common';
+
+   // En main.ts
+   app.useGlobalPipes(new ValidationPipe());
+   ```
+
+- **Cascarita**: Asegúrate de que el `ValidationPipe` esté configurado correctamente y aplicado en la instancia de la aplicación.
+
+- **Preguntas**:
+   1. ¿Por qué es crucial validar los datos de entrada en una aplicación que maneja transacciones financieras?
+   2. ¿Qué podría suceder si un decorador está mal colocado o si no se aplican los pipes correctamente?
+
+---
+
+### **3. Configuración de Exception Filters**
+
+- **Propuesta de Solución**:
+   - Implementar filtros de excepción para manejar errores comunes:
+   ```typescript
+   import { ExceptionFilter, Catch, ArgumentsHost, HttpException } from '@nestjs/common';
+
+   @Catch(HttpException)
+   export class HttpErrorFilter implements ExceptionFilter {
+     catch(exception: HttpException, host: ArgumentsHost) {
+       const ctx = host.switchToHttp();
+       const response = ctx.getResponse();
+       const status = exception.getStatus();
+
+       response.status(status).json({
+         statusCode: status,
+         message: exception.message,
+       });
+     }
+   }
+   ```
+
+   - Asegurarse de que los errores se manejen adecuadamente en las respuestas al usuario.
+
+- **Cascarita**: Verifica que el filtro de excepción esté registrado correctamente en el módulo o aplicado globalmente.
+
+- **Preguntas**:
+   1. ¿Cómo impacta el manejo adecuado de excepciones en la experiencia del usuario y en la seguridad de la aplicación?
+   2. ¿Por qué es importante tener un manejo centralizado de excepciones en una aplicación NestJS?
+
+---
