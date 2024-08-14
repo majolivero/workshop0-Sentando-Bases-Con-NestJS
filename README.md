@@ -73,6 +73,7 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 Nest is [MIT licensed](LICENSE).
 
 -----------
+
 Notas importantes:
 
 1.Instalación de NESTjs DE MANERA LOCAL:
@@ -82,4 +83,14 @@ npx @nestjs/cli new nombre-del-proyecto
 git remote add origin https://github.com/tu-usuario/nombre-del-repositorio.git
 git branch -M main
 git push -u origin main
+
+-----------
+Historia de usuario 1:Configuración Inicial y Estructura del Proyecto
+Preguntas:
+1. ¿Qué propósito cumple el archivo main.ts en un proyecto NestJS y por qué es crucial en la configuración inicial?
+El archivo main.ts en un proyecto NestJS es el punto de entrada de la aplicación.
+Rol en la arquitectura limpia: Capa de Configuración.
+Propósito: Aquí es donse se configura y arranca el servidor de la aplicación. En términos de arquitectura limpia,
+main.ts configura las capas externas, como la red(HTTP), y orquesta la inicialización de la aplicación sin involucrarse en la lógica de negocio. Es el archivo que conecta todos los componentes antes de que la aplicación comience a procesar solicitudes, por esto es crucial en la configuración inicial.
+
 
