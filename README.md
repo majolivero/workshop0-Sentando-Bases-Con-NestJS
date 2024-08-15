@@ -294,11 +294,40 @@ Imagina que has sido contratado por una fintech emergente que busca revolucionar
 - **Cascarita**: Asegúrate de que las rutas estén correctamente definidas y que los decoradores estén aplicados en los lugares correctos.
 
 - **Preguntas**:
+
+  NOTA: Después de crear el controlador LoansController con el comando npx nest g co loans, se crearon dentro de la carpeta loans dos módulos loans.controller.spec.ts y loans.controller.ts.
+
    1. ¿Qué sucede si defines incorrectamente un decorador en un controlador? ¿Cómo afecta esto a la funcionalidad del endpoint?
+
+   En NestJS, los decoradores se utilizan para agregar metadatos a las clases y métodos, lo que permite que el framework configure y maneje las rutas, inyección de dependencias, validaciones, entre otras funcionalidades.
+   Si se define incorrectamente un decorador en un controlador, esto puede tener varios efectos negativos sobre 
+   la funcionalidad del endpoint, dependiendo del tipo de error.
+
+   Consecuencias de un decorador incorrecto
+
+   *Ruta incorrecta o no disponible: 
+   Si el decorador que define la ruta (@Get(), @Post(), etc.) está mal configurado o ausente, la ruta correspondiente podría no ser accesible. Por ejemplo, si olvidas agregar @Get('ruta') a un método, ese método no se expondrá como un endpoint GET en la ruta especificada.
+
+   *Inyección de dependencias fallida:
+   Decoradores como @Inject() o @Injectable() son esenciales para la inyección de dependencias. Un mal uso puede resultar en un fallo al iniciar la aplicación debido a que no se pueden resolver las dependencias, lo que provoca un error de tiempo de ejecución.
+
+   *Problemas de validación y manejo de datos:
+   Decoradores como @Body(), @Param(), @Query(), etc., se utilizan para extraer datos de la solicitud HTTP. Si se utilizan incorrectamente, podrían causar que los datos no se procesen correctamente, lo que lleva a errores en la validación o datos incompletos.
+
    2. ¿Por qué es importante manejar rutas dinámicas (por ejemplo, `@Get(':id')`) en aplicaciones que interactúan con bases de datos?
 
-   NOTA: Después de crear el controlador LoansController con el comando npx nest g co loans, se crearon dentro de la carpeta loans dos módulos loans.controller.spec.ts y loans.controller.ts.
+   Manejar rutas dinámicas en aplicaciones que interactuan con bases de datos es crucial porque permite a la aplicación ser flexible y accesible al momento de acceder, manipular y gestionar datos específicos.
+   En el contexto de NestJS, el uso de rutas dinámicas, como @Get(':id'), es importante por las siguientes razones:
 
+   *Acceso a recursos específicos: Las rutas dinámicas permiten a la aplicación acceder a recursos específicos 
+   almacenados en la base de datos utilizando un identificador único, como un id. Por ejemplo, en una aplicación que maneja usuarios, @Get(':id') permite obtener los detalles de un usuario específico en función de su id.
+
+   Esto es esencial para operaciones CRUD, ya que cada recurso en la base de datos puede ser referenciado y manipulado de manera directa mediante su identificador. 
+
+   *Manejo de relaciones entre entidades: En aplicaciones que manejan relaciones entre diferentes entidades, las rutas dinámicas permiten navegar estas relaciones de manera intuitiva.
+
+   Las rutas dinámicas son fundamentales en aplicaciones que interactúan con bases de datos porque proporcionan una manera flexible, eficiente y segura de acceder y manipular recursos específicos. Este enfoque es clave para construir aplicaciones robustas y escalables que cumplan con las expectativas de los usuarios y los requerimientos técnicos.
+ 
 ---
 
 ## **Historia de Usuario 2: Implementación de la Lógica de Negocio y Seguridad**

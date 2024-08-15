@@ -13,3 +13,5 @@ export class LoansController {
     return `Status of loan ${id}`;
   }
 }
+
+
