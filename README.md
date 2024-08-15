@@ -461,9 +461,10 @@ Imagina que has sido contratado por una fintech emergente que busca revolucionar
 
    Si un decorador está mal colocado o los pipes no se aplican correctamente, se podrían experimentar problemas en la validación o transformación de datos en la aplicación.
 
-   Por ejemplo, un decorador mal colocado puede tener diferentes efectos, dependiendo del tipo de decorador, entre ellos tenemos rutas innaccesibles o mal mapeadas, por lo tanto, los usuarios no podrán acceder a los endpoints esperados, lo que puede resultar en errores 404.
+   Por ejemplo, un decorador mal colocado puede tener diferentes efectos, dependiendo del tipo de decorador, entre ellos tenemos rutas innaccesibles o mal mapeadas, por lo tanto, los usuarios no podrán acceder a los endpoints esperados, lo que puede resultar en errores 404. Además, si decoradores como @Injectable() o @Inject() no se aplican correctamente, la inyección de dependencias puede fallar.
 
-   Además, si decoradores como @Injectable() o @Inject() no se aplican correctamente, la inyección de dependencias puede fallar.
+   Los pipes se utilizan para transformar y validar los datos que ingresan a la aplicación antes de que lleguen a los métodos del controlador.
+   Si los pipes no se aplican correctamente, los datos enviados por los usuarios no serán validados antes de ser procesados y puede permitir que datos mal formateados entren en la aplicación, lo que puede resultar en errores de lógica y fallos de seguridad.
 
 ---
 
@@ -491,10 +492,27 @@ Imagina que has sido contratado por una fintech emergente que busca revolucionar
 
    - Asegurarse de que los errores se manejen adecuadamente en las respuestas al usuario.
 
+   El código proporcionado en el filtro de excepciones maneja adecuadamente las excepciones que heredan de HttpException. Genera una respuesta JSON que incluye el código de estado (statusCode) y el mensaje de error (message). Esto es apropiado para comunicar errores al usuario.
+
 - **Cascarita**: Verifica que el filtro de excepción esté registrado correctamente en el módulo o aplicado globalmente.
 
 - **Preguntas**:
+
+   **Solución**
+   
    1. ¿Cómo impacta el manejo adecuado de excepciones en la experiencia del usuario y en la seguridad de la aplicación?
+
+   Un manejo adecuado de excepciones permite proporcionar mensajes de errores claros y específicos a los usuarios. Esto ayuda a los usuarios a entender que salió mal y cómo pueden
+   corregir el problema, lo que mejora significativamente la experiencia del usuario. Además mejora la confianza, ya que una aplicación que comunica claramente los errores, genera más
+   confianza en el usuario.
+
+   En cuanto al impacto en la seguridad de la aplicación un manejo adecuado de excepciones impide que se exponga información sensible o interna de la aplicación en los mensajes de error
+   que se devuelven al usuario. También puede prevenir y mitigar ataques como la inyección de código o la manipulación de entradas.
+
+
    2. ¿Por qué es importante tener un manejo centralizado de excepciones en una aplicación NestJS?
+
+   Un manejo centralizado de exepciones garantiza que todos los errores se gestionen de manera uniforme en toda la aplicación. Esto significa que sin importar donde ocurra el error, la respuesta será coherente, lo que es crucial tanto para la experiencia de usuario como para el mantenimiento de la aplicación. 
+   En general el maenjo adecuado y centralizado de excepciones en una aplicación NestJS es fundamental para garantizar una experiencia de usuario positiva, proteger la seguridad de la aplicación, y facilitar el mantenimiento y escalabilidad del sistema. 
 
 ---
