@@ -179,12 +179,15 @@ Imagina que has sido contratado por una fintech emergente que busca revolucionar
    1. ¿Qué propósito cumple el archivo `main.ts` en un proyecto NestJS y por qué es crucial en la configuración inicial? Puedes leer más sobre el archivo [aquí](../first-step-project/src/main.ts) en la sección inferior de
    notas.
    
+   **Solución**
    El archivo main.ts en un proyecto NestJS es el punto de entrada de la aplicación.
    Rol en la arquitectura limpia: Capa de Configuración.
    Propósito: Aquí es donse se configura y arranca el servidor de la aplicación. En términos de arquitectura limpia,main.ts configura las capas externas, como la red(HTTP), y orquesta la inicialización de la aplicación sin involucrarse en la lógica de negocio. Es el archivo que conecta todos los componentes antes de que la
    aplicación comience a procesar solicitudes, por esto es crucial en la configuración inicial.
 
    2. ¿Qué diferencia existe entre `app.module.ts` y `app.controller.ts`? ¿Cómo se relacionan estos archivos con la modularidad y la estructura de la aplicación? Puedes leer sobre el archivo [aquí](../notes/files-explanation.md) o [aquí](../notes/components.md).
+
+   **Solución**
 
    app.module.ts es el módulo raíz de la aplicación que organiza otros módulos necesarios.
    Este archivo agrupa y organiza la configuración y los módulos de la aplicación. En la Arquitectura Limpia, actúa como la capa de configuración que ensambla los módulos, controladores, y servicios, definiendo cómo se interrelacionan sin involucrarse en la lógica de negocio.
@@ -213,6 +216,7 @@ Imagina que has sido contratado por una fintech emergente que busca revolucionar
 - **Preguntas**:
    1. ¿Por qué crees que es importante modularizar la aplicación separando funcionalidades en diferentes módulos
    
+   **Solución**
    nest g mo loans: se utiliza para generar un nuevo módulo llamado loans.
    nest g mo users: se utiliza para generar un nuevo módulo llamado users.
 
@@ -228,6 +232,7 @@ Imagina que has sido contratado por una fintech emergente que busca revolucionar
 
    2. ¿Cómo crees que afecta la modularidad al mantenimiento y escalabilidad de la aplicación?
 
+   **Solución**
    1. Mantenimiento:
 
   *Facilita la corrección de errores: En un sistema modular, puedes aislar y solucionar problemas en un módulo específico sin afectar el resto de la aplicación.
@@ -245,6 +250,8 @@ Imagina que has sido contratado por una fintech emergente que busca revolucionar
   *Reutilización de código: Los módulos pueden utilizarse en diferentes proyectos, lo que acelera el desarrollo y la escalabilidad.
 
   3. Despues de crear los archivos de los módulos, ¿qué archivos se generan y cómo se relacionan con los módulos creados?
+
+  **Solución**
 
   MÓDULO Loans Module:
   Después crear el módulo LoansModule con el comando npx nest g mo loans(por estar instalado nest localmente), la
@@ -293,11 +300,30 @@ Imagina que has sido contratado por una fintech emergente que busca revolucionar
 
 - **Cascarita**: Asegúrate de que las rutas estén correctamente definidas y que los decoradores estén aplicados en los lugares correctos.
 
+  **Solución**
+
+  En Nest JS, los decoradores se colocan en diferentes partes de la aplicación para definir comportamientos específicos en controladores, servicios, modelos y otros componentes. 
+
+  Los decoradores en los controladores se utilizan para definir las rutas y el manejo de las solicitudes HTTP.
+  Aquí explico el uso de los decoradores en el código explicado anteriormente:
+
+  @Controller('loans'): Se coloca en la parte superior de la clase del controlador para definir la ruta base.
+  Todas las rutas dentro del controlador LoansController comenzarán con /loans.
+
+  @Get(), @Post(), @Put(), @Delete(): Los decoradores se colocan antes de los métodos del controlador para manejar solicitudes HTTP específicas (GET, POST, PUT, DELETE).
+
+  @Param(), @Query(), @Body(): Los decoradores se colocan antes de los parámetros del método para extraer información específica de la solicitud (como parámetros de ruta, consulta, cuerpo de la solicitud).
+
+  Teniendo en cuenta la explicación anterior las rutas estan correctamente definidas y los decoradores estan aplicados en los lugares correctos. 
+
+
 - **Preguntas**:
 
   NOTA: Después de crear el controlador LoansController con el comando npx nest g co loans, se crearon dentro de la carpeta loans dos módulos loans.controller.spec.ts y loans.controller.ts.
 
    1. ¿Qué sucede si defines incorrectamente un decorador en un controlador? ¿Cómo afecta esto a la funcionalidad del endpoint?
+
+   **Solución**
 
    En NestJS, los decoradores se utilizan para agregar metadatos a las clases y métodos, lo que permite que el framework configure y maneje las rutas, inyección de dependencias, validaciones, entre otras funcionalidades.
    Si se define incorrectamente un decorador en un controlador, esto puede tener varios efectos negativos sobre 
@@ -315,6 +341,8 @@ Imagina que has sido contratado por una fintech emergente que busca revolucionar
    Decoradores como @Body(), @Param(), @Query(), etc., se utilizan para extraer datos de la solicitud HTTP. Si se utilizan incorrectamente, podrían causar que los datos no se procesen correctamente, lo que lleva a errores en la validación o datos incompletos.
 
    2. ¿Por qué es importante manejar rutas dinámicas (por ejemplo, `@Get(':id')`) en aplicaciones que interactúan con bases de datos?
+
+   **Solución**
 
    Manejar rutas dinámicas en aplicaciones que interactuan con bases de datos es crucial porque permite a la aplicación ser flexible y accesible al momento de acceder, manipular y gestionar datos específicos.
    En el contexto de NestJS, el uso de rutas dinámicas, como @Get(':id'), es importante por las siguientes razones:
