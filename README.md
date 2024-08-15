@@ -180,6 +180,7 @@ Imagina que has sido contratado por una fintech emergente que busca revolucionar
    notas.
    
    **Solución**
+
    El archivo main.ts en un proyecto NestJS es el punto de entrada de la aplicación.
    Rol en la arquitectura limpia: Capa de Configuración.
    Propósito: Aquí es donse se configura y arranca el servidor de la aplicación. En términos de arquitectura limpia,main.ts configura las capas externas, como la red(HTTP), y orquesta la inicialización de la aplicación sin involucrarse en la lógica de negocio. Es el archivo que conecta todos los componentes antes de que la
@@ -217,6 +218,7 @@ Imagina que has sido contratado por una fintech emergente que busca revolucionar
    1. ¿Por qué crees que es importante modularizar la aplicación separando funcionalidades en diferentes módulos
    
    **Solución**
+
    nest g mo loans: se utiliza para generar un nuevo módulo llamado loans.
    nest g mo users: se utiliza para generar un nuevo módulo llamado users.
 
@@ -233,6 +235,7 @@ Imagina que has sido contratado por una fintech emergente que busca revolucionar
    2. ¿Cómo crees que afecta la modularidad al mantenimiento y escalabilidad de la aplicación?
 
    **Solución**
+
    1. Mantenimiento:
 
   *Facilita la corrección de errores: En un sistema modular, puedes aislar y solucionar problemas en un módulo específico sin afectar el resto de la aplicación.
@@ -298,7 +301,8 @@ Imagina que has sido contratado por una fintech emergente que busca revolucionar
    }
    ```
 
-- **Cascarita**: Asegúrate de que las rutas estén correctamente definidas y que los decoradores estén aplicados en los lugares correctos.
+- **Cascarita**: Asegúrate de que las rutas estén correctamente definidas y que los decoradores estén aplicados
+  en los lugares correctos.
 
   **Solución**
 
