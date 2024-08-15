@@ -383,9 +383,9 @@ Imagina que has sido contratado por una fintech emergente que busca revolucionar
 
    @Injectable()
    export class LoansService {
-     calculateLoanRisk(userProfile: any): string {
+     calculateLoanRisk(userProfile: any): string { //El nombre del método es adecuado y esta alineado con el proposito del metodo, que es calcular el riesgo del prestamo. 
        // Lógica básica para determinar el riesgo
-       if (userProfile.creditScore > 700) {
+       if (userProfile.creditScore > 700) { //La lógica empleada indica que si el puntaje es mayor que 700 se dice que esta Low Risk, de lo contrario, esta en High Risk.
          return 'Low Risk';
        } else {
          return 'High Risk';
@@ -499,7 +499,7 @@ Imagina que has sido contratado por una fintech emergente que busca revolucionar
 - **Preguntas**:
 
    **Solución**
-   
+
    1. ¿Cómo impacta el manejo adecuado de excepciones en la experiencia del usuario y en la seguridad de la aplicación?
 
    Un manejo adecuado de excepciones permite proporcionar mensajes de errores claros y específicos a los usuarios. Esto ayuda a los usuarios a entender que salió mal y cómo pueden
