@@ -399,10 +399,34 @@ Imagina que has sido contratado por una fintech emergente que busca revolucionar
 - **Preguntas**:
    1. ¿Qué ventajas tiene manejar la lógica de negocio en servicios en lugar de controladores?
 
-   
+   **Solución**
+
+   Manejar la lógica de negocio en servicios en lugar de controladores en NestJS ofrece varias ventajas clave, que mejoran la organización, el mantenimiento y la escalabilidad de la aplicación. A continuación, se detallan algunas de estas ventajas:
+
+   SEPARACIÓN DE RESPONSABILIDADES:
+   Al separar la lógica de negocio de los controladores, los controladores se encargan únicamente de manejar las solicitudes HTTP, definir rutas, y gestionar la interacción con el cliente. Los servicios, por otro lado, se centran en la implementación de la lógica de negocio. Esto permite que cada componente de la aplicación tenga una responsabilidad clara y definida.
+
+   REUSABILIDAD:
+   Al encapsular la lógica de negocio en servicios, esta lógica puede ser reutilizada en múltiples controladores o en diferentes partes de la aplicación. Esto evita la duplicación de código y facilita la reutilización.
+
+   INYECCIÓN DE DEPENDENCIAS:
+   NestJS facilita la inyección de dependencias en los servicios, permitiendo gestionar y compartir recursos comunes (como bases de datos, APIs externas, etc.) de manera eficiente y segura. Los controladores pueden inyectar estos servicios y beneficiarse de su lógica sin preocuparse por cómo están implementados.
 
    2. ¿Cómo se relaciona la inyección de dependencias con la modularidad y la capacidad de prueba de la aplicación?
 
+   **Solución**
+
+   La inyección de dependencias en NestJS es un concepto clave que está estrechamente relacionado con la modularidad y la capacidad de prueba de una aplicación. A continuación, se explica cómo estos conceptos se integran y benefician el desarrollo de aplicaciones robustas y mantenibles:
+
+   La inyección de dependencias es un patrón de diseño que permite que una clase (como un servicio o un controlador) reciba sus dependencias desde el exterior en lugar de crearlas por sí misma. En NestJS, se gestiona a través del sistema de inyección de dependencias de Nest, que utiliza contenedores de inyección para resolver y proporcionar las dependencias necesarias a los componentes.
+
+   RELACIÓN CON LA MODULARIDAD:
+  
+   En NestJS, las aplicaciones se estructuran en módulos, que son contenedores de código relacionados. Cada módulo puede contener servicios, controladores, y otros componentes. La inyección de dependencias permite que cada módulo se mantenga autónomo y desacoplado de otros módulos, lo que refuerza la modularidad.
+
+   RELACIÓN CON LA CAPACIDAD DE PRUEBA:
+
+   La inyección de dependencias mejora significativamente la capacidad de prueba de una aplicación, ya que facilita la creación de tests unitarios y de integración.
 ---
 
 ### **2. Aplicación de Decoradores y Pipes**
@@ -428,6 +452,7 @@ Imagina que has sido contratado por una fintech emergente que busca revolucionar
 
 - **Preguntas**:
    1. ¿Por qué es crucial validar los datos de entrada en una aplicación que maneja transacciones financieras?
+   
    2. ¿Qué podría suceder si un decorador está mal colocado o si no se aplican los pipes correctamente?
 
 ---
