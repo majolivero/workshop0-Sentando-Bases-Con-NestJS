@@ -452,8 +452,18 @@ Imagina que has sido contratado por una fintech emergente que busca revolucionar
 
 - **Preguntas**:
    1. ¿Por qué es crucial validar los datos de entrada en una aplicación que maneja transacciones financieras?
-   
+
+   **Solución**
+
+   En una aplicación que maneja transacciones financieras, la validación de los datos de entrada es fundamental para garantizar la seguridad, integridad de los datos, cumplimiento normativo, y confianza de los usuarios. Sin una validación adecuada, la aplicación podría estar expuesta a fraudes, errores costosos, sanciones regulatorias, y pérdida de credibilidad, lo que podría tener graves consecuencias tanto para los usuarios como para la entidad financiera.
+
    2. ¿Qué podría suceder si un decorador está mal colocado o si no se aplican los pipes correctamente?
+
+   Si un decorador está mal colocado o los pipes no se aplican correctamente, se podrían experimentar problemas en la validación o transformación de datos en la aplicación.
+
+   Por ejemplo, un decorador mal colocado puede tener diferentes efectos, dependiendo del tipo de decorador, entre ellos tenemos rutas innaccesibles o mal mapeadas, por lo tanto, los usuarios no podrán acceder a los endpoints esperados, lo que puede resultar en errores 404.
+
+   Además, si decoradores como @Injectable() o @Inject() no se aplican correctamente, la inyección de dependencias puede fallar.
 
 ---
 
